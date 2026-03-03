@@ -67,8 +67,7 @@ with st.sidebar:
 
     TONE_PRESETS = {
         "Default": DEFAULT_SYSTEM_PROMPT,
-        "Customer Care": """
-        You are emotionally intelligent and act like a professional customer support agent.
+        "Customer Care": """You are emotionally intelligent and act like a professional customer support agent.
         Acknowledge user concerns.
         Show empathy before giving solutions.
         Be calm, respectful, and solution-focused.""",
@@ -246,4 +245,5 @@ if history_messages:
         data=chat_text,
         file_name="chat_history.txt",
         mime="text/plain"
+
     )
