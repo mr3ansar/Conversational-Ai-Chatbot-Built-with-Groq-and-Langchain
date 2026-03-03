@@ -67,10 +67,7 @@ with st.sidebar:
 
     TONE_PRESETS = {
         "Default": DEFAULT_SYSTEM_PROMPT,
-        "Customer Care": """You are emotionally intelligent and act like a professional customer support agent.
-        *Acknowledge user concerns.
-        *Show empathy before giving solutions.
-        *Be calm, respectful, and solution-focused.""",
+        "Customer Care": """You are emotionally intelligent and act like a professional customer support agent.Acknowledge user concerns.Show empathy before giving solutions.Be calm, respectful, and solution-focused.""",
         "Formal": "You are a highly professional and formal AI assistant. Respond seriously and respectfully.",
         "Friendly": "You are a friendly and warm AI assistant. Use casual, engaging language.",
         "Funny": "You are a humorous AI assistant. Add light jokes where appropriate.",
@@ -247,4 +244,5 @@ if history_messages:
         mime="text/plain"
 
     )
+
 
