@@ -7,12 +7,10 @@ from langchain_core.chat_history import InMemoryChatMessageHistory
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables.history import RunnableWithMessageHistory
-# there was this problem with the env api key not loading so Ai told be to use this
-from pydantic import SecretStr
 
 #loading Api key
 
-ENV_GROQ_API_KEY = st.secrets.get("GROQ_API_KEY", "")
+ENV_GROQ_API_KEY = st.secrets.get("GROQ_API_KEY", "").strip()
 
 #Streamlit Page Config
 st.set_page_config(
@@ -118,9 +116,9 @@ with st.sidebar:
         st.session_state.pop("download_cache", None)
         st.rerun()
 
-## API Key Guard, to check if the key is present before allowing the user to interact with the chatbot. This prevents errors and guides the user to set up their environment correctly.
+## API Key Guard, to check if the key is present before allowing the user to interact with the chatbot.
 if not GROQ_API_KEY:
-    st.error("🔑 Groq API Key is missing. Add it in your .env or paste it in the sidebar")
+    st.error("🔑 Groq API Key is missing...")
     st.stop()
 
 # Initialize chat history in session state if not already present
@@ -246,6 +244,7 @@ if history_messages:
         mime="text/plain"
 
     )
+
 
 
 
