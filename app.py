@@ -137,7 +137,7 @@ def get_history(session_id:str)-> InMemoryChatMessageHistory: # this function ta
     return st.session_state.history_store[session_id]
 # Building LLM
 llm = ChatGroq(
-    api_key = SecretStr(GROQ_API_KEY),
+    api_key =GROQ_API_KEY,
     model = model_name,
     temperature=temperature,
     max_tokens=max_tokens
@@ -247,6 +247,7 @@ if history_messages:
         mime="text/plain"
 
     )
+
 
 
 
