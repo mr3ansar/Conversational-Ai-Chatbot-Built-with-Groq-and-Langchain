@@ -13,7 +13,7 @@ from pydantic import SecretStr
 
 #loading env
 load_dotenv()
-ENV_GROQ_API_KEY = st.secrets.get("GROQ_API_KEY","").strip()
+ENV_GROQ_API_KEY = st.secrets.get("ENV_GROQ_API_KEY","").strip()
 
 #Streamlit Page Config
 st.set_page_config(
@@ -118,11 +118,6 @@ with st.sidebar:
         st.session_state.pop("history_store",None)
         st.session_state.pop("download_cache", None)
         st.rerun()
-
-## API Key Guard, to check if the key is present before allowing the user to interact with the chatbot. This prevents errors and guides the user to set up their environment correctly.
-if not GROQ_API_KEY:
-    st.error("🔑 Groq API Key is missing. Add it in your .env or paste it in the sidebar")
-    st.stop()
 
 # Initialize chat history in session state if not already present
 if "history_store" not in st.session_state:
@@ -247,6 +242,7 @@ if history_messages:
         mime="text/plain"
 
     )
+
 
 
 
