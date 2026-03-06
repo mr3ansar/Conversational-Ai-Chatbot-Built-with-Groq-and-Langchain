@@ -11,6 +11,7 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 #loading Api key
 
 ENV_GROQ_API_KEY = st.secrets.get("GROQ_API_KEY", "").strip()
+st.write("Key loaded:", bool(ENV_GROQ_API_KEY))
 
 #Streamlit Page Config
 st.set_page_config(
@@ -244,6 +245,7 @@ if history_messages:
         mime="text/plain"
 
     )
+
 
 
 
