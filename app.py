@@ -2,7 +2,6 @@ import os
 import json
 import time
 import streamlit as st
-from dotenv import load_dotenv
 from langchain_groq import ChatGroq
 from langchain_core.chat_history import InMemoryChatMessageHistory
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
@@ -11,9 +10,9 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 # there was this problem with the env api key not loading so Ai told be to use this
 from pydantic import SecretStr
 
-#loading env
-load_dotenv()
-ENV_GROQ_API_KEY = st.secrets.get("ENV_GROQ_API_KEY","").strip()
+#loading Api key
+
+ENV_GROQ_API_KEY = st.secrets.get("GROQ_API_KEY", "")
 
 #Streamlit Page Config
 st.set_page_config(
@@ -247,6 +246,7 @@ if history_messages:
         mime="text/plain"
 
     )
+
 
 
 
