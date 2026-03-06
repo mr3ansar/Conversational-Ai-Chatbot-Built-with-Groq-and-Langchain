@@ -13,7 +13,7 @@ from pydantic import SecretStr
 
 #loading env
 load_dotenv()
-ENV_GROQ_API_KEY = st.secrets.get("GROQ_API_KEY","").strip()
+ENV_GROQ_API_KEY = st.secrets.get("ENV_GROQ_API_KEY","").strip()
 
 #Streamlit Page Config
 st.set_page_config(
@@ -247,6 +247,7 @@ if history_messages:
         mime="text/plain"
 
     )
+
 
 
 
